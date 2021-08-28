@@ -1,0 +1,15 @@
+root@5adabb086498:/workdir/code/algorithm# python3 shortest_path_floyd_warshall.py 
+[input] node num: 4
+[input] edge num: 7
+[input] (node1, node2, cost(node1->node2): 1 2 4
+[input] (node1, node2, cost(node1->node2): 1 4 6
+[input] (node1, node2, cost(node1->node2): 2 1 3
+[input] (node1, node2, cost(node1->node2): 2 3 7
+[input] (node1, node2, cost(node1->node2): 3 1 5
+[input] (node1, node2, cost(node1->node2): 3 4 4
+[input] (node1, node2, cost(node1->node2): 4 3 2
+0 4 8 6 
+3 0 7 9 
+5 9 0 4 
+7 11 2 0 
+root@5adabb086498:/workdir/code/algorithm# 
