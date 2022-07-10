@@ -2,9 +2,9 @@
 def dfs_r(graph, visited, node):
     print(node, end=' ')
     visited[node] = True
-    for child in graph[node]:
-        if visited[child] == False:
-            dfs_r(graph, visited, child)
+    for vertex in graph[node]:
+        if visited[vertex] == False:
+            dfs_r(graph, visited, vertex)
 
 def dfs_s(graph, start):
     stack = [start]
@@ -14,9 +14,9 @@ def dfs_s(graph, start):
         if visited[node] == False:
             print(node, end=' ')
             visited[node] = True
-            for child in graph[node]:
-                if visited[child] == False:
-                    stack.append(child)
+            for vertex in graph[node]:
+                if visited[vertex] == False:
+                    stack.append(vertex)
     print('')
 
 
