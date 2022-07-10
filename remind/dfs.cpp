@@ -6,13 +6,13 @@
 
 using namespace std;
 
-int dfs_recursive(vector<vector<int>> &graph, int v, vector<bool> &visited) {
+int dfs_recursive(vector<vector<int>> &graph, int node, vector<bool> &visited) {
 
-    visited[v] = true;
-    cout << v << ", ";
-    for (auto i : graph[v]) {
-        if (visited[i] == false) {
-            dfs_recursive(graph, i, visited);
+    visited[node] = true;
+    cout << node << ", ";
+    for (auto vertex : graph[node]) {
+        if (visited[vertex] == false) {
+            dfs_recursive(graph, vertex, visited);
         }
     }
 
@@ -33,9 +33,7 @@ void dfs_stack(vector<vector<int>> &graph, int node) {
         if (visited[v] == false) {
             visited[v] = true;
             cout << v << ", ";
-        }
-        for (auto i : graph[v]) {
-            if (visited[i] == false) {
+            for (auto i : graph[v]) {
                 s.push(i);
             }
         }
@@ -62,10 +60,10 @@ int main() {
         {},         //6
         {},         //7
     };
-    vector<bool> visited;
+    vector<bool> visited(9, false);
 
-    for (int i = 0; i < 9; i++)
-        visited.push_back(false);
+    //for (int i = 0; i < 9; i++)
+    //    visited.push_back(false);
 
     dfs_recursive(graph, 1, visited);
     cout << endl;
