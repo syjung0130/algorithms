@@ -18,12 +18,15 @@ void bfs(vector<vector<int>> &graph, int startNode, vector<bool> &visited) {
         if (visited[v] == false) {
             visited[v] = true;
             cout << v << ", ";
-        }
-        for (int i = 0; i < graph[v].size(); i++) {
-            if (visited[graph[v][i]] == false) {
+            for (int i = 0; i < graph[v].size(); i++) {
                 q.push(graph[v][i]);
             }
         }
+        // for (int i = 0; i < graph[v].size(); i++) {
+        //     if (visited[graph[v][i]] == false) {
+        //         q.push(graph[v][i]);
+        //     }
+        // }
     }
 
 }
