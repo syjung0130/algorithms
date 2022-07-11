@@ -15,7 +15,6 @@ void dfs_permute(vector<int> prev_elem, vector<int> elements, int k) {
 		return;
 	}
 
-	cout << __LINE__ << endl;
 	for (auto it = elements.begin(); it != elements.end(); it++) {
 		vector<int> next_elem(elements);
 		int idx = std::distance(elements.begin(), it);
@@ -24,7 +23,7 @@ void dfs_permute(vector<int> prev_elem, vector<int> elements, int k) {
 		next_elem.erase(offset);
 
 		prev_elem.push_back(*it);
-		dfs_permute(next_elem, elements, k);
+		dfs_permute(prev_elem, next_elem, k);
 		prev_elem.pop_back();
 	}
 }
@@ -41,7 +40,7 @@ int main()
 
 	vector<int> v1 = {1, 2, 3};
 	permute(v1, 2);
-
+#if 0
 	cout << endl;
 	for (auto v : results) {
 		for (auto d : v) {
@@ -49,6 +48,6 @@ int main()
 		}
 		cout << endl;
 	}
-
+#endif
 	return 0;
 }
