@@ -6,12 +6,29 @@ using namespace std;
 
 vector<vector<int>> results;
 
+void print_elems(vector<int>& elems) {
+	for (auto d : elems)
+		cout << d << ", ";
+	cout << endl;
+}
+
+void print_results(vector<vector<int>> vv) {
+	cout << "results: " << endl;
+	cout << "{" << endl;
+	for (auto v : vv) {
+		cout << "  { ";
+		for (auto i : v) {
+			cout << i << ", ";
+		}
+		cout << "}" << endl;
+	}
+	cout << "}" << endl;
+}
+
 void dfs_permute(vector<int> prev_elem, vector<int> elements, int n, int k) {
 	if (elements.size() == n - k) {
 		results.push_back(prev_elem);
-		for (auto d : prev_elem)
-			cout << d << ", ";
-		cout << endl;
+		//print_elems(prev_elem);
 		return;
 	}
 
@@ -35,7 +52,9 @@ int main()
 
 	//cout << "main(): " << endl;
 	vector<int> v1 = { 1, 2, 3 };
-	permute(v1, 2);
+	permute(v1, 3);
+
+	print_results(results);
 
 	return 0;
 }
