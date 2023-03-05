@@ -1,13 +1,13 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+
 
 using namespace std;
 
 vector<vector<int>> results;
-int n = 0;
 
-void dfs_permute(vector<int> prev_elem, vector<int> elements, int k) {
-	if (elements.size() == n-k) {
+void dfs_permute(vector<int> prev_elem, vector<int> elements, int n, int k) {
+	if (elements.size() == n - k) {
 		results.push_back(prev_elem);
 		for (auto d : prev_elem)
 			cout << d << ", ";
@@ -17,37 +17,25 @@ void dfs_permute(vector<int> prev_elem, vector<int> elements, int k) {
 
 	for (auto it = elements.begin(); it != elements.end(); it++) {
 		vector<int> next_elem(elements);
-		int idx = std::distance(elements.begin(), it);
-		vector<int>::iterator offset = next_elem.begin();
-		std::advance(offset, idx);
-		next_elem.erase(offset);
 
+		next_elem.erase(next_elem.begin() + std::distance(elements.begin(), it));
 		prev_elem.push_back(*it);
-		dfs_permute(prev_elem, next_elem, k);
+		dfs_permute(prev_elem, next_elem, n, k);
 		prev_elem.pop_back();
 	}
 }
 
 void permute(vector<int> nums, int k) {
 	vector<int> prev_elem;
-	n = nums.size();
-	dfs_permute(prev_elem, nums, k);
+	dfs_permute(prev_elem, nums, nums.size(), k);
 }
 
 int main()
 {
-	cout << "main(): " << endl;
 
-	vector<int> v1 = {1, 2, 3};
+	//cout << "main(): " << endl;
+	vector<int> v1 = { 1, 2, 3 };
 	permute(v1, 2);
-#if 0
-	cout << endl;
-	for (auto v : results) {
-		for (auto d : v) {
-			cout << d << ", ";
-		}
-		cout << endl;
-	}
-#endif
+
 	return 0;
 }
